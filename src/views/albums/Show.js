@@ -73,7 +73,7 @@ render() {
   return(
     <div>
     <br/>
-      <Card>
+      <Card className = "bg-dark">
         <Card.Header as="h5">{album.name}</Card.Header>
         <Card.Body>
         <Card.Title>Artist</Card.Title>
