@@ -25,7 +25,7 @@ export default class ArtistIndex extends Component {
    }
 
    componentDidMount() {
-     axios.get('http://localhost:4000/artists/')
+     axios.get((process.env.REACT_APP_BACKEND || 'http://localhost:4000/')+'artists/')
      .then(response => {
        console.log(response);
        this.setState({

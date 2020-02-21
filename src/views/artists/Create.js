@@ -44,7 +44,7 @@
      console.log(artist);
 
      axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken')
-     axios.post('http://localhost:4000/artists', artist)
+     axios.post((process.env.REACT_APP_BACKEND || 'http://localhost:4000/')+'artists', artist)
        .then(res => {
          console.log(res.data);
          window.location = '/';

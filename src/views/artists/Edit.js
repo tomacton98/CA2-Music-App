@@ -35,7 +35,7 @@
    componentDidMount() {
      const { id } = this.props.match.params;
 
-     axios.get(`http://localhost:4000/artists/${id}`)
+     axios.get((process.env.REACT_APP_BACKEND || 'http://localhost:4000/')+`artists/${id}`)
        .then(response => {
          console.log(response);
          this.setState({
@@ -50,7 +50,7 @@
 
    onDelete() {
      const { id } = this.props.match.params;
-     axios.delete(`http://localhost:4000/artists/${id}`)
+     axios.delete((process.env.REACT_APP_BACKEND || 'http://localhost:4000/')+`artists/${id}`)
        .then((res) => {
          console.log('Artist successfully deleted!')
        }).catch((error) => {
@@ -70,7 +70,7 @@
      console.log(artist);
      console.log(localStorage.getItem('jwtToken'));
      axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken')
-     axios.put(`http://localhost:4000/artists/${id}`, artist)
+     axios.put((process.env.REACT_APP_BACKEND || 'http://localhost:4000/')+`artists/${id}`, artist)
        .then(res => {
          console.log(res.data);
          this.props.history.push("/");
@@ -113,7 +113,7 @@
                />
              </Col>
            </Form.Group>
-           
+
            <br />
            <Form.Group as={Row}>
              <Col sm={{ span: 10, offset: 2 }}>

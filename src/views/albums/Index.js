@@ -26,7 +26,7 @@ export default class AlbumIndex extends Component {
    }
 
    componentDidMount() {
-     axios.get('http://localhost:4000/albums/')
+     axios.get((process.env.REACT_APP_BACKEND || 'http://localhost:4000/')+'albums/')
      .then(response => {
        console.log(response);
        this.setState({

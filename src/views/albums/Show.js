@@ -26,7 +26,7 @@ export default class AlbumShow extends Component {
 componentDidMount() {
   const { id } = this.props.match.params;
 
-  axios.get(`http://localhost:4000/albums/${id}`)
+  axios.get((process.env.REACT_PP_BACKEND || 'http://localhost:4000/')+'albums/${id}`)
     .then(response => {
       console.log(response);
       this.setState({
@@ -48,7 +48,7 @@ songList() {
 onDelete = () => {
   const { id } = this.props.match.params;
   axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken')
-  axios.delete(`http://localhost:4000/albums/${id}`)
+  axios.delete((process.env.REACT_APP_BACKEND || 'http://localhost:4000/')+`albums/${id}`)
     .then((res) => {
       console.log('Album successfully deleted!')
       window.location = '/albums';
@@ -91,7 +91,7 @@ render() {
           <Button onClick={this.onDelete} variant="outline-danger">Delete</Button>
           </>
           :
-          <></> 
+          <></>
           }
         </Card.Body>
       </Card>

@@ -31,7 +31,7 @@ export default class AlbumCreate extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/artists')
+    axios.get((process.env.REACT_PP_BACKEND || 'http://localhost:4000/')+'artists')
       .then(res => {
         console.log("data:", res.data);
         this.setState({
@@ -88,7 +88,7 @@ export default class AlbumCreate extends Component {
     console.log(album);
 
     axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken')
-    axios.post('http://localhost:4000/albums', album)
+    axios.post((process.env.REACT_APP_BACKEND || 'http://localhost:4000/')+'albums', album)
       .then(res => {
         console.log(res.data);
         window.location = '/albums';

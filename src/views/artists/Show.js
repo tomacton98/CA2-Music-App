@@ -22,7 +22,7 @@
  componentDidMount() {
    const { id } = this.props.match.params;
 
-   axios.get(`http://localhost:4000/artists/${id}`)
+   axios.get((process.env.REACT_APP_BACKEND || 'http://localhost:4000/')+`artists/${id}`)
      .then(response => {
        console.log(response);
        this.setState({
@@ -38,7 +38,7 @@
  onDelete = () => {
    const { id } = this.props.match.params;
    axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken')
-   axios.delete(`http://localhost:4000/artists/${id}`)
+   axios.delete((process.env.REACT_APP_BACKEND || 'http://localhost:4000/')+`artists/${id}`)
      .then((res) => {
        console.log('Artist successfully deleted!')
        window.location = '/';
