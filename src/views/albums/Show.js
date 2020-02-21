@@ -26,7 +26,7 @@ export default class AlbumShow extends Component {
 componentDidMount() {
   const { id } = this.props.match.params;
 
-  axios.get((process.env.REACT_PP_BACKEND || 'http://localhost:4000/')+'albums/${id}`)
+  axios.get((process.env.REACT_APP_BACKEND || 'http://localhost:4000/')+'albums/${id}`)
     .then(response => {
       console.log(response);
       this.setState({
