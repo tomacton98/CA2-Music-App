@@ -59,7 +59,7 @@
          }
        });
 
-     axios.get(process.env.REACT_PP_BACKEND || 'http://localhost:4000/')+`albums/${id}`)
+     axios.get((process.env.REACT_PP_BACKEND || 'http://localhost:4000/')+`albums/${id}`)
        .then(response => {
          console.log(response);
          var songs = response.data.songs.map(genre => {
