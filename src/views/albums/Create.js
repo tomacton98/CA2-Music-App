@@ -31,7 +31,7 @@ export default class AlbumCreate extends Component {
   }
 
   componentDidMount() {
-    axios.get((process.env.REACT_PP_BACKEND || 'http://localhost:4000/')+'artists')
+    axios.get((process.env.REACT_APP_BACKEND || 'http://localhost:4000/')+'artists')
       .then(res => {
         console.log("data:", res.data);
         this.setState({

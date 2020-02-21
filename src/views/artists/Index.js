@@ -63,7 +63,7 @@ export default class ArtistIndex extends Component {
                <th>Name</th>
              </tr>
            </thead>
-           <tbody class = "title">
+           <tbody className = "title">
              { this.artistList() }
            </tbody>
          </Table>
